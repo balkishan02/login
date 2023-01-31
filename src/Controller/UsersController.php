@@ -36,14 +36,38 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
 
-    public function newpass($id = null){
-        $npass = $this->Users->get($id, [
-            'containt' => []
+    public function newpass($id = null)
+    {
+        $newPassword = $this->Users->get($id, [
+            'contain' => [],
         ]);
-        $v = $npass->password;
-        echo password_verify('123', $v);
-        echo '<pre>';print_r($v);die();
+
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $old = $this->request->getData('old_password');
+            $oldPass = $newPassword->password;
+
+            echo '<pre>';print_r(password_verify($old, $oldPass));die();
+
+            if (password_verify($old, $oldPass) == 1){
+                $newPassword = $this->Users->patchEntity($newPassword, $this->request->getData());
+
+                if ($this->Users->save($newPassword)) {
+                    $this->Flash->success(__('The User Password Has Been Changed Successfully.'));
+
+                    return $this->redirect(['action' => 'index']);
+                }
+                $this->Flash->error(__('Password Match Failed !'));
+            }
+            else{
+                $this->Flash->error(__('Old Password Not Match !'));
+            }
+        }
+        $this->set(compact('newPassword'));
+
+
     }
+
+
     /**
      * Index method
      *

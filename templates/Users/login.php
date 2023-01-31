@@ -13,11 +13,16 @@
     }
     .login {
         font-size: 2.5rem;
-        background: -webkit-linear-gradient(#A084DC, #EBC7E6);
+        background: -webkit-linear-gradient(#A5C9CA, #16213E);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+        font-weight: bold;
     }
+    /*.main{*/
+    /*    background-image: linear-gradient(to right bottom, #051937, #00476c, #007b9c, #00b2c3, #52ebdd);*/
+    /*}*/
 </style>
+<div class="main">
 <h3 class="login">Log In Page</h3>
 <?= $this->Form->create(); ?>
 <?= $this->Form->control('email'); ?>
@@ -30,5 +35,5 @@
         'action' => 'add'
     ],
         ['class' => 'singin']) ?>
-
+</div>
 

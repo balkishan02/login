@@ -34,11 +34,19 @@ $cakeDescription = 'CAKE-PHP';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+<!--    <style>-->
+<!--        .my-background{-->
+<!--            background-image: linear-gradient(to right bottom, #d9f1f9, #b7e2e4, #9cd3c7, #8ec2a2, #8dae7a, #8ba063, #89914d, #898239, #80782d, #766e21, #6d6514, #645b04);-->
+<!--            background-repeat: no-repeat;-->
+<!--            height: 100vh;-->
+<!---->
+<!--        }-->
+<!--    </style>-->
 </head>
-<body>
+<body class="my-background">
     <nav class="top-nav">
         <div class="top-nav-title">
-            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP Learning</a>
+            <a href="<?= $this->Url->build('/') ?>"><span>Cake</span>PHP</a>
         </div>
         <div class="top-nav-links">
             <a target="_blank" rel="noopener" href="https://book.cakephp.org/4/">Documentation</a>

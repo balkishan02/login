@@ -8,9 +8,15 @@
 </style>
 
 <h4>Changing Password</h4>
-<?= $this->Form->create($npass); ?>
+<?php
+    echo $this->Form->create($newPassword);
+    echo $this->Form->control('old_password');
+    echo $this->Form->control('password');
+    echo $this->Form->control('retype_password', ['type' => 'password']);
+    echo $this->Form->button(__('Submit'));
+    echo $this->Form->end();
+?>
 
-<?= $this->Form->control('password'); ?>
-<?= $this->Form->control('retype_password', ['type' => 'password']); ?>
-<?= $this->Form->button(__('Submit')); ?>
-<?= $this->Form->end(); ?>
+
+
+
